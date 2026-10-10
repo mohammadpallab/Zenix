@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - JLPT Bangladesh</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .form-page {
+            min-height: 100vh;
+            background: #f8faf9;
+            padding: 20px 0 60px;
+        }
+
+        .form-container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #0a7a4b;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 20px;
+            padding: 28px 22px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .form-card h1 {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .form-card .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 28px;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #0a7a4b;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: #0a7a4b;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #065f3a;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .login-link a {
+            color: #0a7a4b;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .success-msg {
+            display: none;
+            background: #e8f5e9;
+            color: #0a7a4b;
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">🇯🇵</div>
+                <span>JUAAB</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="form-page">
+        <div class="form-container">
+            <a href="index.html" class="back-link">← Back to Home</a>
+
+            <div class="form-card">
+                <div class="success-msg" id="successMsg">
+                    ✅ Account created successfully!
+                </div>
+
+                <h1>Create Account</h1>
+                <p class="subtitle">Sign up to register for JLPT examination</p>
+
+                <form id="registerForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" placeholder="Enter first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Enter last name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="your@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="01XXXXXXXXX" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" placeholder="Create password" required minlength="6">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <input type="password" placeholder="Confirm password" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Create Account</button>
+                </form>
+
+                <div class="login-link">
+                    Already have an account? <a href="#">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            document.getElementById('successMsg').style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            
+            // Scroll to top of form
+            document.getElementById('successMsg').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
